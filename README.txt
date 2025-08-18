@@ -1,106 +1,148 @@
-╔═══════════════════════════════════════════════════╗
-║                    BrutalForex                    ║
-╚═══════════════════════════════════════════════════╝
+========================================================================
+                      BrutalForex v6.3 - README
+========================================================================
 
-=== Tool Overview ===
-Name: BrutalForex
-Version: 1.0
-Author: voltsparx
+[Description]
+BrutalForex is an advanced multi-platform bruteforce tool designed for 
+ethical penetration testing and cybersecurity research. It supports 
+targeted attacks against Instagram, Facebook, Discord, Reddit, GitHub, 
+and Roblox with platform-specific handling for each service.
+
+[Legal Warning]
+⚠️ WARNING: Unauthorized access to computer systems is illegal. 
+This tool is for LEGAL penetration testing ONLY. Use only on accounts 
+you own or have explicit permission to test. By using this software, 
+you agree to use it ethically and legally.
+
+[Features]
+✔️ Multi-platform support (6 major social platforms)
+✔️ Tor and proxy anonymity options
+✔️ Platform-specific attack methods
+✔️ Intelligent rate limiting
+✔️ Session management
+✔️ Detailed result logging
+✔️ Threaded execution (50+ threads)
+✔️ User-agent rotation
+✔️ CSRF/fingerprint handling
+
+[Supported Platforms]
+• Instagram - Encrypted password handling
+• Facebook - Form-based authentication
+• Discord - API with fingerprint collection  
+• Reddit - JSON response validation
+• GitHub - Cookie-based sessions
+• Roblox - JSON API authentication
+
+[Requirements]
+▫️ Python 3.8+
+▫️ Required Libraries:
+   - requests
+   (Install with: pip install requests)
+
+▫️ For Tor support:
+   - Tor service installed and running
+   - sudo apt install tor (Linux)
+   - brew install tor (macOS)
+
+▫️ For proxy support:
+   - proxies.txt file with one proxy per line:
+     socks5://ip:port
+     http://ip:port
+
+[Installation]
+1. Clone the repository:
+   git clone https://github.com/voltsparx/BrutalForex.git
+2. Navigate to directory:
+   cd BrutalForex
+3. Install dependencies:
+   pip install -r requirements.txt
+
+[Usage]
+Basic command:
+python3 brutalforex.py -p <platform> -u <username> -w <wordlist> [options]
+
+Required Arguments:
+  -p, --platform    Target platform (instagram, facebook, discord, etc.)
+  -u, --username    Target username/email
+  -w, --wordlist    Path to password wordlist
+
+Optional Arguments:
+  -t, --threads     Number of threads (default: 50)
+  --tor             Use Tor for anonymity
+  --proxies         Use proxies from proxies.txt
+
+Examples:
+1. Attack Instagram with Tor:
+   python3 brutalforex.py -p instagram -u testuser -w passwords.txt --tor -t 30
+
+2. Attack Discord with proxies:
+   python3 brutalforex.py -p discord -u user@domain.com -w rockyou.txt --proxies
+
+3. Attack Roblox (clearnet):
+   python3 brutalforex.py -p roblox -u player123 -w wordlist.txt -t 20
+
+[Wordlist Format]
+• One password per line
+• UTF-8 encoding recommended
+• Common wordlists: rockyou.txt, crackstation.txt
+
+Sample wordlist:
+password123
+qwerty
+letmein
+<...>
+
+[Result Saving]
+Successful attempts are saved to:
+./results/<platform>_<username>.txt
+
+File contains:
+• Platform name
+• Username
+• Found password  
+• Attempt count
+• Timestamp
+
+[Anonymity Options]
+1. Tor (Recommended):
+   - Routes all traffic through Tor network
+   - Enable with --tor flag
+   - Requires Tor service running
+
+2. Proxies:
+   - Rotates through proxies from proxies.txt
+   - Enable with --proxies flag
+   - Format: socks5://ip:port or http://ip:port
+
+[Rate Limiting]
+Each platform has customized delays:
+• Instagram: 0.5-2.0s between attempts
+• GitHub: 1.0-4.0s (strict rate limits)
+• Others: Balanced values for stealth
+
+[Warning Messages]
+❌ "Wordlist not found" - Check file path/permissions
+❌ "Tor connection failed" - Verify Tor service is running
+❌ "No valid passwords" - Wordlist is empty or malformed
+❌ "Platform not supported" - Check -p argument
+
+[Disclaimer]
+THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. 
+THE AUTHOR IS NOT RESPONSIBLE FOR ANY ILLEGAL USE OF THIS TOOL. 
+USERS ASSUME ALL RISK AND LIABILITY.
+
+[Ethical Guidelines]
+✔ Only test systems you own/have permission to test
+✔ Respect all applicable laws
+✔ Do not disrupt production systems
+✔ Report vulnerabilities responsibly
+
+[Author]
+voltsparx
 Contact: voltsparx@gmail.com
-License: GPL-3.0 (With Ethical Use Clause)
+Repository: https://github.com/voltsparx/BrutalForex
 
-=== Description ===
-A multi-threaded brute-forcing tool designed for authorized:
-- Penetration testing
-- Cybersecurity competitions
-- Ethical hacking education
+[License]
+GPL-3.0 License - See LICENSE file for details
 
-Supported Platforms:
-- Instagram
-- Facebook 
-- Reddit
-- Discord
-- Telegram
-
-=== Features ===
-• Multi-threaded attacks (15 threads by default)
-• Platform-specific attack methods
-• Default wordlist support (sample_wordlist.txt)
-• Session/cookie handling
-• Rate-limiting avoidance
-• Clean termination (Ctrl+C support)
-• Detailed results logging
-
-=== Requirements ===
-• Python 3.6+
-• Required modules:
-  - requests
-  - threading
-  - queue
-  - os/signal
-  - time
-
-=== Installation ===
-1. Ensure Python 3.6+ is installed
-2. Install dependencies:
-   pip install requests
-3. Create sample_wordlist.txt in same directory
-4. Add passwords to test (one per line)
-
-=== Usage Instructions ===
-1. Run the script:
-   python3 BrutalForex.py
-
-2. Select target platform:
-   Enter number (1-5) for desired platform
-
-3. Enter target username
-
-4. Provide wordlist path or press Enter to use default
-
-5. Wait for results:
-   - Successful attempts saved in /results/
-   - Statistics shown in console
-
-=== Default Wordlist ===
-The tool will automatically use 'sample_wordlist.txt' if:
-- No wordlist path is provided
-- File exists in same directory
-
-=== Modules Used ===
-• requests       - HTTP requests handling
-• threading     - Concurrent attacks
-• queue         - Thread-safe results
-• os/signal     - System integration
-• time          - Rate control
-
-=== Ethical Warning ===
-❗❗ DISCLAIMER ❗❗
-
-This tool is provided for LEGAL, AUTHORIZED testing ONLY including:
-- Penetration testing with explicit permission
-- Cybersecurity competitions
-- Educational purposes under supervision
-
-STRICTLY PROHIBITED:
-- Unauthorized access to systems/accounts
-- Any illegal hacking activities
-- Violation of privacy laws
-
-By using this tool, you AGREE:
-- You have permission to test target systems
-- You accept full legal responsibility for misuse
-- The author is NOT LIABLE for any damages
-
-USE AT YOUR OWN RISK. The author disclaims all responsibility for illegal use.
-
-=== License ===
-GNU GPLv3 with additional ethical restrictions:
-- See included LICENSE file for full terms
-
-=== Contact ===
-Author: voltsparx
-Email: voltsparx@gmail.com
-GitHub: github.com/voltsparx
-
-Report bugs/requests to the email above.
+========================================================================
