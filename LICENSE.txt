@@ -1,0 +1,40 @@
+BrutalForex - Ethical Security Testing Tool
+Copyright (C) 2024 voltsparx (voltsparx@gmail.com)
+
+=== ETHICAL USE CLAUSE (Non-Negotiable) ===
+1. LEGAL RESTRICTIONS:
+   - This software may ONLY be used for:
+     • Authorized penetration testing
+     • Cybersecurity competitions with explicit permission
+     • Academic research with institutional approval
+   - All other use is STRICTLY PROHIBITED.
+
+2. USER AGREEMENT:
+   - By using this software, you:
+     • Certify you have legal authority to test target systems
+     • Accept full criminal/civil liability for misuse
+     • Waive all claims against the author
+
+3. ENFORCEMENT:
+   - Violators automatically forfeit license rights
+   - Author reserves right to report illegal activity
+   - Law enforcement exempt from these restrictions
+
+=== GNU GENERAL PUBLIC LICENSE Version 3 ===
+
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+                            Preamble
+
+  The GNU General Public License is a free, copyleft license for
+software and other kinds of works.
+
+[... Full GPL-3.0 text continues ...]
+[Insert full text from https://www.gnu.org/licenses/gpl-3.0.txt]
+
+=== END OF LICENSE ===
