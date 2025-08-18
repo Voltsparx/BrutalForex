@@ -34,18 +34,17 @@ you agree to use it ethically and legally.
 • Roblox - JSON API authentication
 
 [Requirements]
-▫️ Python 3.8+
+▫️ Python 3.8+ (Windows/Linux/macOS)
 ▫️ Required Libraries:
-   - requests
-   (Install with: pip install requests)
+   - requests>=2.31.0
 
 ▫️ For Tor support:
-   - Tor service installed and running
-   - sudo apt install tor (Linux)
-   - brew install tor (macOS)
+   - Linux: sudo apt install tor
+   - macOS: brew install tor
+   - Windows: Download Tor Expert Bundle from https://www.torproject.org/download/
 
 ▫️ For proxy support:
-   - proxies.txt file with one proxy per line:
+   - Create proxies.txt file with one proxy per line:
      socks5://ip:port
      http://ip:port
 
@@ -56,10 +55,14 @@ you agree to use it ethically and legally.
    cd BrutalForex
 3. Install dependencies:
    pip install -r requirements.txt
+                |OR|
+   pip install requests
+
+   Windows Note: Run Command Prompt as Administrator if you encounter permission errors
 
 [Usage]
 Basic command:
-python3 brutalforex.py -p <platform> -u <username> -w <wordlist> [options]
+python brutalforex.py -p <platform> -u <username> -w <wordlist> [options]
 
 Required Arguments:
   -p, --platform    Target platform (instagram, facebook, discord, etc.)
@@ -73,13 +76,15 @@ Optional Arguments:
 
 Examples:
 1. Attack Instagram with Tor:
-   python3 brutalforex.py -p instagram -u testuser -w passwords.txt --tor -t 30
+   python brutalforex.py -p instagram -u testuser -w passwords.txt --tor -t 30
 
 2. Attack Discord with proxies:
-   python3 brutalforex.py -p discord -u user@domain.com -w rockyou.txt --proxies
+   python brutalforex.py -p discord -u user@domain.com -w rockyou.txt --proxies
 
 3. Attack Roblox (clearnet):
-   python3 brutalforex.py -p roblox -u player123 -w wordlist.txt -t 20
+   python brutalforex.py -p roblox -u player123 -w wordlist.txt -t 20
+
+Windows Note: Use python instead of python3 on Windows systems
 
 [Wordlist Format]
 • One password per line
@@ -107,7 +112,7 @@ File contains:
 1. Tor (Recommended):
    - Routes all traffic through Tor network
    - Enable with --tor flag
-   - Requires Tor service running
+   - Windows: Ensure tor.exe is running from Tor Expert Bundle
 
 2. Proxies:
    - Rotates through proxies from proxies.txt
