@@ -1,5 +1,5 @@
 BrutalForex - Ethical Security Testing Tool
-Copyright (C) 2024 voltsparx (voltsparx@gmail.com)
+Copyright (C) 2025 voltsparx (voltsparx@gmail.com)
 
 === ETHICAL USE CLAUSE (Non-Negotiable) ===
 1. LEGAL RESTRICTIONS:
