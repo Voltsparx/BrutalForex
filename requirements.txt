@@ -1,1 +1,5 @@
-requests>=2.31.0
+# Module for sending requests to websites
+requests
+# Run this on your terminal: pip install -r requirements.txt
+#                     OR
+# pip install requests
